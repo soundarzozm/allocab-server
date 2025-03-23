@@ -1,2 +1,92 @@
-.vscode
-target/*
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Gradle or Maven build directories
+build/
+target/
+bin/
+.gradle/
+.mvn/wrapper/
+
+# IntelliJ IDEA related files
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse related files
+.classpath
+.project
+.settings/
+.apt_generated/
+.factorypath
+.springBeans
+
+# NetBeans related files
+nbproject/
+
+# VS Code related files
+.vscode/
+
+# OS generated files #
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+*.pem
+*.p12
+
+# Spring Boot devtools restart
+spring-boot-devtools.properties
+
+# Temporary files
+*.swp
+*.swo
+*~
+# Backup files
+*.bak
+
+# Embedded database files (H2, HSQLDB, etc.)
+*.h2.db
+*.mv.db
+
+# Other build system files
+.DS_Store
+.sbt/
+.sbt-launch-dir/
+.metals/
+
+# Cache files
+.cache/
+
+# Local configuration files
+application-local.properties
+application-dev.properties
+application-test.properties
+
+# Keystore files
+*.jks
+
+# node modules
+node_modules/
+
+# Python virtual environment
+venv/
+__pycache__/
+
+# Rust cargo
+target/
