@@ -1,12 +1,16 @@
 package com.allocab.server.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import java.util.UUID;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "users")
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
@@ -21,7 +25,9 @@ public class User {
   String last_name;
   String email;
   String password;
-  Enum<Role> role;
+
+  @Enumerated(EnumType.STRING)
+  Role role;
   String address;
   boolean[] days_opted;
 
@@ -30,7 +36,7 @@ public class User {
       String last_name,
       String email,
       String password,
-      Enum<Role> role,
+      Role role,
       String address,
       boolean[] days_opted) {
     this.address = address;
@@ -70,7 +76,7 @@ public class User {
     return password;
   }
 
-  public Enum<Role> getRole() {
+  public Role getRole() {
     return role;
   }
 
@@ -102,7 +108,7 @@ public class User {
     this.password = password;
   }
 
-  public void setRole(Enum<Role> role) {
+  public void setRole(Role role) {
     this.role = role;
   }
 }
