@@ -17,4 +17,4 @@ services:
     environment:
       POSTGRES_DB: allocab-db
       POSTGRES_PASSWORD: zozmgaming
-      POSTGRES_USER: postgres 
+      POSTGRES_USER: postgres

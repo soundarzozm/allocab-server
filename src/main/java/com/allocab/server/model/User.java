@@ -1,17 +1,16 @@
 package com.allocab.server.model;
 
-import org.springframework.data.annotation.Id;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import java.util.UUID;
+import jakarta.persistence.Id;
 
 @Entity
 public class User {
-
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  int id;
+  UUID id;
 
   enum Role {
     USER,
@@ -43,7 +42,7 @@ public class User {
     this.role = role;
   }
 
-  public int getId() {
+  public UUID getId() {
     return id;
   }
 
@@ -91,7 +90,7 @@ public class User {
     this.first_name = first_name;
   }
 
-  public void setId(int id) {
+  public void setId(UUID id) {
     this.id = id;
   }
 

@@ -14,17 +14,4 @@ public class UserService {
     public UserService(UserRepository userRepository) {
       this.userRepository = userRepository;
   }
-
-  public void addUser(
-    String first_name,
-      String last_name,
-      String email,
-      String password,
-      Enum<Role> role,
-      String address,
-      boolean[] days_opted
-  ) {
-    User user = new User(first_name, last_name, email, password, role, address, days_opted);
-    userRepository.save(user);
-  }
 }
