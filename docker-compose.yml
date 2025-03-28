@@ -1,0 +1,20 @@
+services:
+  db:
+    image: postgres:latest
+    container_name: allocab-db
+    restart: always
+    # set shared memory limit when using docker-compose
+    shm_size: 128mb
+    ports:
+      - "5432:5432"
+    # or set shared memory limit when deploy via swarm stack
+    # volumes:
+    #  - type: tmpfs
+    #  - postgres-data: /var/lib/postgresql/data
+    # target: /dev/shm
+    # tmpfs:
+    #   size: 134217728 # 128*2^20 bytes = 128Mb
+    environment:
+      POSTGRES_DB: allocab-db
+      POSTGRES_PASSWORD: zozmgaming
+      POSTGRES_USER: postgres 
