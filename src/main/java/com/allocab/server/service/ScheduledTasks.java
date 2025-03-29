@@ -7,7 +7,7 @@ import java.time.LocalDateTime;
 @Component
 public class ScheduledTasks {
 
-  @Scheduled(cron = "0 17 * * 1-5 *")
+  @Scheduled(cron = "0 0 17 * * 1-5")
   public void generateTrips() {
     System.out.println("Current time: " + LocalDateTime.now());
     // Generate the usual trips (from USERS table)
