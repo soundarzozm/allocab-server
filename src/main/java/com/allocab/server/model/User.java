@@ -5,21 +5,19 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import java.util.UUID;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+
+import java.util.UUID;
+
+import com.allocab.server.util.Enums.Role;
 
 @Entity
 @Table(name = "users")
 public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
-  UUID id;
-
-  enum Role {
-    USER,
-    ADMIN
-  }
+  UUID user_id;
 
   String first_name;
   String last_name;
@@ -49,14 +47,14 @@ public class User {
   }
 
   public UUID getId() {
-    return id;
+    return user_id;
   }
 
   public String getAddress() {
     return address;
   }
 
-  public boolean[] getDays_opted() {
+  public boolean[] getDaysOpted() {
     return days_opted;
   }
 
@@ -64,11 +62,11 @@ public class User {
     return email;
   }
 
-  public String getFirst_name() {
+  public String getFirstName() {
     return first_name;
   }
 
-  public String getLast_name() {
+  public String getLastName() {
     return last_name;
   }
 
@@ -84,7 +82,7 @@ public class User {
     this.address = address;
   }
 
-  public void setDays_opted(boolean[] days_opted) {
+  public void setDaysOpted(boolean[] days_opted) {
     this.days_opted = days_opted;
   }
 
@@ -92,15 +90,15 @@ public class User {
     this.email = email;
   }
 
-  public void setFirst_name(String first_name) {
+  public void setFirstName(String first_name) {
     this.first_name = first_name;
   }
 
-  public void setId(UUID id) {
-    this.id = id;
+  public void setId(UUID user_id) {
+    this.user_id = user_id;
   }
 
-  public void setLast_name(String last_name) {
+  public void setLastName(String last_name) {
     this.last_name = last_name;
   }
 
