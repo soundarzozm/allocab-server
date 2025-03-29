@@ -8,11 +8,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import com.allocab.server.model.Request;
-import com.allocab.server.model.User;
 
 @Repository
 public interface RequestRepository extends JpaRepository<Request, UUID> {
 
   @Query("SELECT r FROM Request r WHERE r.requested_for = ?1 AND r.user_id = ?2")
-  Optional<Request> findByDateAndUserId(LocalDate requested_for, User user_id);
+  Optional<Request> findByDateAndUserId(LocalDate requested_for, UUID user_id);
 }

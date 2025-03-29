@@ -6,12 +6,11 @@ import java.util.UUID;
 import com.allocab.server.util.Enums.RequestStatus;
 import com.allocab.server.util.Enums.RequestType;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -21,17 +20,19 @@ public class Request {
   @GeneratedValue(strategy = GenerationType.UUID)
   UUID request_id;
 
-  @ManyToOne
-  @JoinColumn(name = "user_id", nullable = false) // Foreign key column
-  private User user_id;
+  @Column(name = "user_id", nullable = false)
+  UUID user_id;
 
   LocalDate requested_for;
   LocalDate requested_on;
   RequestType request_type;
   RequestStatus request_status;
 
-  public Request(User user_id, LocalDate requested_for, LocalDate requested_on, RequestType request_type,
-      RequestStatus request_status) {
+  // Add a no-argument constructor (required by Hibernate)
+  public Request() {
+  }
+
+  public Request(UUID user_id, LocalDate requested_for, LocalDate requested_on, RequestType request_type, RequestStatus request_status) {
     this.user_id = user_id;
     this.requested_for = requested_for;
     this.requested_on = requested_on;
@@ -43,7 +44,7 @@ public class Request {
     return request_id;
   }
 
-  public User getUserId() {
+  public UUID getUserId() {
     return user_id;
   }
 
@@ -67,7 +68,7 @@ public class Request {
     this.request_id = request_id;
   }
 
-  public void setUserId(User user_id) {
+  public void setUserId(UUID user_id) {
     this.user_id = user_id;
   }
 

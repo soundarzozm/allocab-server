@@ -3,11 +3,13 @@ package com.allocab.server.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.allocab.server.dto.request.RequestDTO;
 import com.allocab.server.model.Request;
 import com.allocab.server.service.RequestService;
 
@@ -26,7 +28,12 @@ public class RequestController {
   }
 
   @PostMapping("/requests")
-  public void createRequest(@RequestBody Request request) {
-    requestService.createRequest(request);
+  public ResponseEntity<Void> createRequest(@RequestBody RequestDTO requestDTO) {
+    requestService.createRequest(
+        requestDTO.getUserId(),
+        requestDTO.getRequestedOn(),
+        requestDTO.getRequestedFor(),
+        requestDTO.getRequestType());
+    return ResponseEntity.ok().build(); // Return a 200 OK response
   }
 }
