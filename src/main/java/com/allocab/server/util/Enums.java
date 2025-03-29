@@ -11,4 +11,15 @@ public class Enums {
     CANCELLED,
     NOT_BOARDED
   }
+
+  public enum RequestType {
+    ADDITIONAL,
+    CANCELLATION
+  }
+
+  public enum RequestStatus {
+    PENDING,
+    APPROVED,
+    REJECTED
+  }
 }

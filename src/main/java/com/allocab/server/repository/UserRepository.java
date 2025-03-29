@@ -1,14 +1,16 @@
 package com.allocab.server.repository;
 
+import java.util.Optional;
 import java.util.UUID;
 import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
 import com.allocab.server.model.User;
 
 @Repository
-public class UserRepository extends JpaRepository<User, UUID> {
+public interface UserRepository extends JpaRepository<User, UUID> {
 
-  public void save(User user) {
-    // TODO Auto-generated method stub
-    throw new UnsupportedOperationException("Unimplemented method 'save'");
-  }
+  @Query("SELECT u FROM User u WHERE u.email = ?1")
+  Optional<User> findByEmail(String email);
 }
