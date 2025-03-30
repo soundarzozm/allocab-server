@@ -26,8 +26,12 @@ public class User {
 
   @Enumerated(EnumType.STRING)
   Role role;
+  
   String address;
   boolean[] days_opted;
+
+  public User() {
+  }
 
   public User(
       String first_name,

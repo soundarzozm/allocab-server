@@ -6,6 +6,8 @@ import java.util.UUID;
 import com.allocab.server.util.Enums.TripStatus;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -26,6 +28,8 @@ public class Trip {
 
   LocalDate trip_date;
   boolean is_additional;
+
+  @Enumerated(EnumType.STRING)
   TripStatus trip_status;
 
   public Trip(User user_id, LocalDate trip_date, boolean is_additional, TripStatus trip_status) {

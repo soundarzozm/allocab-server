@@ -8,6 +8,8 @@ import com.allocab.server.util.Enums.RequestType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,7 +27,11 @@ public class Request {
 
   LocalDate requested_for;
   LocalDate requested_on;
+
+  @Enumerated(EnumType.STRING)
   RequestType request_type;
+
+  @Enumerated(EnumType.STRING)
   RequestStatus request_status;
 
   // Add a no-argument constructor (required by Hibernate)
