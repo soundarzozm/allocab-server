@@ -6,7 +6,7 @@ import java.util.UUID;
 import com.allocab.server.util.Enums.RequestType;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class RequestDTO {
+public class RequestRequestDTO {
     private UUID userId;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate requestedOn;
@@ -15,9 +15,9 @@ public class RequestDTO {
     private RequestType requestType;
 
     // Constructors (default and parameterized)
-    public RequestDTO() {}
+    public RequestRequestDTO() {}
 
-    public RequestDTO(UUID userId, LocalDate requestedOn, LocalDate requestedFor, RequestType requestType) {
+    public RequestRequestDTO(UUID userId, LocalDate requestedOn, LocalDate requestedFor, RequestType requestType) {
         this.userId = userId;
         this.requestedOn = requestedOn;
         this.requestedFor = requestedFor;

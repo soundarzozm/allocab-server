@@ -1,6 +1,6 @@
 package com.allocab.server.dto.request;
 
-public class RegisterDTO {
+public class RegisterRequestDTO {
   private String firstName;
   private String lastName;
   private String email;
@@ -8,10 +8,10 @@ public class RegisterDTO {
   private String address;
   private boolean[] daysOpted;
 
-  public RegisterDTO() {
+  public RegisterRequestDTO() {
   }
 
-  public RegisterDTO(
+  public RegisterRequestDTO(
       String firstName,
       String lastName,
       String email,

@@ -1,6 +1,7 @@
 package com.allocab.server.service;
 
 import java.util.Optional;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class UserService {
     this.userRepository = userRepository;
   }
 
-  public void registerUser(String firstName, String lastName, String email, String password, String address, boolean[] daysOpted) {
+  public UUID registerUser(String firstName, String lastName, String email, String password, String address, boolean[] daysOpted) {
     Optional<User> existingUser = userRepository.findByEmail(email);
     System.out.println("Existing user: " + existingUser);
     if (existingUser.isPresent()) {
@@ -26,5 +27,6 @@ public class UserService {
     }
     User user = new User(firstName, lastName, email, password, Role.USER, address, daysOpted);
     userRepository.save(user);
+    return user.getId();
   }
 }

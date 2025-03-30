@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.allocab.server.dto.request.RequestDTO;
+import com.allocab.server.dto.request.RequestRequestDTO;
 import com.allocab.server.model.Request;
 import com.allocab.server.service.RequestService;
 
@@ -28,7 +28,7 @@ public class RequestController {
   }
 
   @PostMapping("/requests")
-  public ResponseEntity<Void> createRequest(@RequestBody RequestDTO requestDTO) {
+  public ResponseEntity<Void> createRequest(@RequestBody RequestRequestDTO requestDTO) {
     requestService.createRequest(
         requestDTO.getUserId(),
         requestDTO.getRequestedOn(),
