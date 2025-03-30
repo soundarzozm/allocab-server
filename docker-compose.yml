@@ -1,4 +1,19 @@
 services:
+  servier:
+    container_name: allocab-server
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: allocab-server:latest
+    depends_on:
+      - db
+    ports:
+      - 8080:8080
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/allocab-db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=zozmgaming
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
   db:
     image: postgres:latest
     container_name: allocab-db
